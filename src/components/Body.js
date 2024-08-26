@@ -5,7 +5,7 @@ import {useState , useEffect} from "react";
 
 import { Link } from "react-router-dom";
 
-
+import { HOME_API } from "../utils/constants";
 
 const Body = () => {
   //local state variable
@@ -20,7 +20,7 @@ const Body = () => {
   } , [])
 
   const fetchData = async () => {
-    const data = await fetch("https://www.swiggy.com/mapi/homepage/getCards?lat=30.7046486&lng=76.71787259999999");
+    const data = await fetch(HOME_API);
 
     const json = await data.json();
     const restaurant = json?.data?.success?.cards?.[1]?.gridWidget?.gridElements?.infoWithStyle?.restaurants;
