@@ -1,35 +1,22 @@
 import RestaurantCard from "./RestaurentCard";
-
 import Shimmer from "./Shimmer";
-import {useState , useEffect} from "react";
-
+import {useState} from "react";
 import { Link } from "react-router-dom";
-
-import { HOME_API } from "../utils/constants";
+import useOnlineStatus from "../utils/useOnlineStatus";
+import useRestaurentData from "../utils/useRestaurentData";
 
 const Body = () => {
-  //local state variable
-  const [listofRestaurent, setlistofRestaurent ] = useState([]);
-  const [filteredRestaurent , setfilteredRestaurent] = useState([]);
 
-  
+  const {filteredRestaurent , listofRestaurent , setfilteredRestaurent } = useRestaurentData();
   const [searchText , setSearchText] = useState("");
 
-  useEffect(() => {
-    fetchData();
-  } , [])
+  const onlineStatus = useOnlineStatus();
+  
+  if(onlineStatus == false) return <h1>Something went wrong Looks like you are offline</h1>
 
-  const fetchData = async () => {
-    const data = await fetch(HOME_API);
+  if(listofRestaurent.length === 0 ) return <Shimmer/>;
 
-    const json = await data.json();
-    const restaurant = json?.data?.success?.cards?.[1]?.gridWidget?.gridElements?.infoWithStyle?.restaurants;
-
-    setlistofRestaurent(restaurant);
-    setfilteredRestaurent(json?.data?.success?.cards?.[1]?.gridWidget?.gridElements?.infoWithStyle?.restaurants);
-  }
-
-    return listofRestaurent.length == 0 ? <Shimmer/> :  (
+    return  (
       <div className="body">
         <div className="filter">
           <div className="search">
@@ -50,7 +37,7 @@ const Body = () => {
           const filteredData = listofRestaurent.filter(
             (res) => res.info.avgRating > 4
           );
-          setlistofRestaurent(filteredData);
+          setfilteredRestaurent(filteredData);
         }}>Top Rated restaurent</button>
         </div>
         <div className="res-container"> 

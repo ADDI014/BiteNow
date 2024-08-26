@@ -18,10 +18,6 @@ class UserClass extends React.Component {
     //   this.setState({
     //     userInfo : json,
     //   })
-
-    this.timer = setInterval(() => {
-        console.log("NAMASTE REACT OP");
-    },1000);
     }
 
     componentWillUnmount(){
