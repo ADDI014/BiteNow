@@ -3,13 +3,13 @@
   "version": "1.0.0",
   "description": "react-day-1",
   "scripts": {
-    "start": "npx parcel index.html",
-    "build": "npx parcel build index.html",
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
     "test": "jest"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ADDI014/BiteNow.git"
+    "url": "git+https://github.com/ADDI014/BiteNow.gitt"
   },
   "keywords": [
     "namaste",
@@ -21,9 +21,11 @@
     "url": "https://github.com/ADDI014/BiteNow.git/issues"
   },
   "homepage": "https://github.com/ADDI014/BiteNow.git#readme",
-  "dependencies": {
+  "devDependencies": {
     "parcel": "^2.12.0",
-    "process": "^0.11.10",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.1"
