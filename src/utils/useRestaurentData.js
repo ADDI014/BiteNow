@@ -6,9 +6,6 @@ const useHomeAPI = () =>{
 
 const [listofRestaurent, setlistofRestaurent ] = useState([]);
   const [filteredRestaurent , setfilteredRestaurent] = useState([]);
-
-
-     
     useEffect(() => {
         fetchData();
     },[]);

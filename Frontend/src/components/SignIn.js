@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useContext} from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import UserContext from '../utils/UserContext';
 
 const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const {setUserName} = useContext(UserContext);   //accsess context to set the logged in user
+
   const navigate = useNavigate();
 
   const handleSignIn = async (e) => {
@@ -17,8 +20,11 @@ const SignIn = () => {
         password,
       });
 
-      localStorage.setItem('token', response.data.token);
+      const {token , username} = response.data;
 
+      localStorage.setItem('token', token);
+      localStorage.setItem('username', username);  //save username in local storage
+      setUserName(username); //update userContext with logged-in-user
       navigate('/');
     } catch (error) {
       setError('Sign-in failed. Check your credentials.');

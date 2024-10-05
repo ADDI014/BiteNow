@@ -24,7 +24,7 @@ const SignUp = () => {
 
       setSuccess("User created successfully");
       setError(null);
-      setTimeout(() => navigate("/login"), 2000);
+      setTimeout(() => navigate("/"), 2000);
     } catch (err) {
       setError("Sign-up failed. Try again.");
       setSuccess(null);

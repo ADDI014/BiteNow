@@ -27,13 +27,14 @@ const Grocery = lazy(() => import("./components/Grocery.js"));
 
 const AppLayout = () => {
 
-  const [userName , setUserName] = useState();
+  const [userName , setUserName] = useState(null);  //manage logged-in user state 
+
 
   useEffect(() => {
-    const data = {
-      name : "ankit kumar",
-    };
-    setUserName(data.name);
+    const storedUser = localStorage.getItem('username');   //manage logged in user state
+    if(storedUser){
+      setUserName(storedUser);    //set user if found in local storage
+    }
   },[]);
 
   return (

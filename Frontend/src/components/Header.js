@@ -1,18 +1,42 @@
 import { LOGO_URL } from "../utils/constants";
-import { useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import { useState, useContext, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
 import { useSelector } from "react-redux";
+import Logout from "./Logout";
 
 const Header = () => {
-  const [btnName, setBtnName] = useState("Login");
+  // const [btnName, setBtnName] = useState("Login");
+  const [isLoggedIn , setIsLoggedIn] = useState(false);
   const onlineStatus = useOnlineStatus();
 
-  const { loggedInUser } = useContext(UserContext);
+  const { loggedInUser , setUserName } = useContext(UserContext);
+  const navigate = useNavigate();
 
   // Subscribing to the store using selector
   const cartItems = useSelector((store) => store.cart.items);
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if(token){
+      setIsLoggedIn(true);
+    }
+  },[]);
+
+
+  const handleAuthButton = ()=> {
+    if(isLoggedIn){
+      //logout logic
+      localStorage.removeItem('token');
+      localStorage.removeItem('username');
+      setUserName(null);
+      setIsLoggedIn(false);
+    }
+    else{
+      navigate("/login");
+    }
+  }
 
   return (
     <header className="bg-pink-100 shadow-lg mb-4">
@@ -78,21 +102,8 @@ const Header = () => {
           </ul>
 
           {/* Login/Logout Button */}
-          <button
-            className="ml-4 px-4 py-2 bg-pink-500 text-white font-semibold rounded-lg hover:bg-pink-600 transition duration-300"
-            onClick={() =>
-              btnName === "Login" ? setBtnName("Logout") : setBtnName("Login")
-            }
-          >
-            {btnName}
-          </button>
-
-          {/* Logged In User */}
-          {loggedInUser && (
-            <span className="ml-4 text-gray-700 font-semibold">
-              {loggedInUser}
-            </span>
-          )}
+          <Logout/>
+          
         </nav>
 
         {/* Mobile Menu */}

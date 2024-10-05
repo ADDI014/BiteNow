@@ -119,7 +119,7 @@ app.post("/login" , async (req, res) => {
       expiresIn  : '1h',
     });
 
-    res.status(200).json({token});
+    res.status(200).json({token , username : user.username});
   }
   catch(error){
       res.status(500).json({message : "Error during Sign-In"});

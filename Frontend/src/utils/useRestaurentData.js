@@ -12,6 +12,7 @@ const [listofRestaurent, setlistofRestaurent ] = useState([]);
 
     const fetchData =async () =>{
         const data = await fetch(HOME_API);
+        console.log(data);
         const json = await data.json();
         const restaurant = json?.data?.success?.cards?.[1]?.gridWidget?.gridElements?.infoWithStyle?.restaurants;
 
