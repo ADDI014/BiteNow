@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ADDI014/React-Day1.git"
+    "url": "git+https://github.com/ADDI014/BiteNow.git"
   },
   "keywords": [
     "namaste",
@@ -18,14 +18,12 @@
   "author": "ankit kumar",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ADDI014/React-Day1/issues"
+    "url": "https://github.com/ADDI014/BiteNow.git/issues"
   },
-  "homepage": "https://github.com/ADDI014/React-Day1#readme",
-  "devDependencies": {
-    "parcel": "^2.12.0",
-    "process": "^0.11.10"
-  },
+  "homepage": "https://github.com/ADDI014/BiteNow.git#readme",
   "dependencies": {
+    "parcel": "^2.12.0",
+    "process": "^0.11.10",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.1"
