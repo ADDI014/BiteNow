@@ -4,6 +4,10 @@ const cors = require('cors');
 const bodyParser = require('body-parser'); 
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
+const path = require('path');
+
+// const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
+app.use(express.static(path.join(__dirname, '../Frontend/dist')));
 
 
 

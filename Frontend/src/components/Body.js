@@ -4,7 +4,7 @@ import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import useRestaurentData from "../utils/useRestaurentData";
-import UserContext from "../utils/UserContext";
+// import UserContext from "../utils/UserContext";
 import Home from "./Home";
 
 const Body = () => {
@@ -17,7 +17,8 @@ const Body = () => {
 
   if (!onlineStatus) return <h1>Something went wrong. Looks like you are offline</h1>;
 
-  const { loggedInUser, setUserName } = useContext(UserContext);
+  // const { loggedInUser, setUserName } = useContext(UserContext);
+  console.log(listofRestaurent);
 
   if (listofRestaurent.length === 0) return <Shimmer />;
 

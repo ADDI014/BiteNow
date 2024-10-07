@@ -6,3 +6,4 @@ export const LOGO_URL = "https://tse4.mm.bing.net/th?id=OIP.ueHppfRf52CDn841Rpj8
 export const MENU_URL = "https://www.swiggy.com/mapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=30.7046486&lng=76.71787259999999&restaurantId="
 
 export const HOME_API = "https://www.swiggy.com/mapi/homepage/getCards?lat=30.68042849999999&lng=76.6181655"
+// export const HOME_API = "http://localhost:5000/api/getCards";

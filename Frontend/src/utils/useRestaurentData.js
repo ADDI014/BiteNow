@@ -11,13 +11,19 @@ const [listofRestaurent, setlistofRestaurent ] = useState([]);
     },[]);
 
     const fetchData =async () =>{
-        const data = await fetch(HOME_API);
-        console.log(data);
-        const json = await data.json();
-        const restaurant = json?.data?.success?.cards?.[1]?.gridWidget?.gridElements?.infoWithStyle?.restaurants;
-
-        setlistofRestaurent(restaurant);
-        setfilteredRestaurent(restaurant);
+        try{
+            const data = await fetch(HOME_API);
+            console.log(data);
+            const json = await data.json();
+            console.log(json);
+            const restaurant = json?.data?.success?.cards?.[1]?.gridWidget?.gridElements?.infoWithStyle?.restaurants;
+    
+            setlistofRestaurent(restaurant);
+            setfilteredRestaurent(restaurant); 
+        }
+        catch (error) {
+            console.error("Error fetching restaurant data: ", error);
+          }
     }
 
     return {filteredRestaurent ,listofRestaurent,  setfilteredRestaurent};
