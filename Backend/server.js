@@ -23,9 +23,11 @@ app.use(express.static(path.join(__dirname, '../Frontend/dist')));
 
 const JWT_SECRET = process.env.JWT_SECRET; 
 
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log('MongoDB connected'))
-  .catch(err => console.error('MongoDB connection error:', err));
+// console.log(process.env.MONGO_URI);
+
+mongoose.connect('mongodb+srv://2237129aimlcec:Ankit123@bharatvirasat.rm5xbbq.mongodb.net/?retryWrites=true&w=majority')
+.then(() => console.log('MongoDB connected'))
+.catch(err => console.error('MongoDB connection error:', err));
 
 const authenticateToken = (req, res, next) => {
   const token = req.headers['authorization'];
