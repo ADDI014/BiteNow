@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -19,7 +20,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: '*', // Ensure this is your frontend URL
+  origin: process.env.CLIENT_URL || '*',
   credentials: true
 }));
 app.use(bodyParser.json());
@@ -27,9 +28,9 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, '../Frontend/dist')));
 
 
-const JWT_SECRET = " rcf4rbfcu4rbc4r2u4br13ur13r13r"; 
+const JWT_SECRET = process.env.JWT_SECRET;; 
 
-mongoose.connect('mongodb+srv://2237129aimlcec:Ankit123@bharatvirasat.rm5xbbq.mongodb.net/?retryWrites=true&w=majority&appName=BharatVirasat')
+mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.log(err));
 

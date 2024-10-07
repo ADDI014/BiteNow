@@ -3,6 +3,7 @@ import useRestaurentMenu from "../utils/useRestaurentMenu";
 import ResCategory from "./ResCategory";
 import Shimmer from "./Shimmer";
 import { useParams} from "react-router-dom";
+// import apiData from "../utils/apiData";
 
 const RestaurentMenu = () => {
     const {resId} = useParams();
@@ -24,7 +25,7 @@ const RestaurentMenu = () => {
                 <ResCategory data={category?.card?.card} 
                 key={category?.card.card.title} 
                 showItems={index === showIndex ? true : false}
-                setShowIndex={() => setShowIndex(showIndex === index ? null : index)}    //set the show index fro children
+                setShowIndex={() => setShowIndex(showIndex === index ? null : index)}    //set the show index for children
                 />
             ))}
         </div>
