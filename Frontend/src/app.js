@@ -59,7 +59,7 @@ const appRouter = createBrowserRouter([
     children : [
       {
         path: "/",
-        element : <ProtectedRoute><Body /></ProtectedRoute>,
+        element : <Body />,
       },
       {
         path: "/about",
