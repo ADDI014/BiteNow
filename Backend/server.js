@@ -23,7 +23,7 @@ app.use(express.static(path.join(__dirname, '../Frontend/dist')));
 
 const JWT_SECRET = process.env.JWT_SECRET; 
 
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.error('MongoDB connection error:', err));
 
