@@ -19,7 +19,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: 'https://bitenow2.onrender.com', // Ensure this is your frontend URL
+  origin: '*', // Ensure this is your frontend URL
   credentials: true
 }));
 app.use(bodyParser.json());
