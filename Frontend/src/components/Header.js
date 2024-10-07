@@ -8,35 +8,15 @@ import Logout from "./Logout";
 
 const Header = () => {
   // const [btnName, setBtnName] = useState("Login");
-  const [isLoggedIn , setIsLoggedIn] = useState(false);
+  // const [isLoggedIn , setIsLoggedIn] = useState(false);
   const onlineStatus = useOnlineStatus();
 
-  const { loggedInUser , setUserName } = useContext(UserContext);
-  const navigate = useNavigate();
+  // const { loggedInUser , setUserName } = useContext(UserContext);
+  // const navigate = useNavigate();
 
   // Subscribing to the store using selector
   const cartItems = useSelector((store) => store.cart.items);
 
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    if(token){
-      setIsLoggedIn(true);
-    }
-  },[]);
-
-
-  const handleAuthButton = ()=> {
-    if(isLoggedIn){
-      //logout logic
-      localStorage.removeItem('token');
-      localStorage.removeItem('username');
-      setUserName(null);
-      setIsLoggedIn(false);
-    }
-    else{
-      navigate("/login");
-    }
-  }
 
   return (
     <header className="bg-pink-100 shadow-lg mb-4">
