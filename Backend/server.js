@@ -7,7 +7,6 @@ const bcrypt = require("bcryptjs");
 const path = require('path');
 
 // const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
-app.use(express.static(path.join(__dirname, '../Frontend/dist')));
 
 
 
@@ -22,6 +21,8 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 app.use(express.json());
+app.use(express.static(path.join(__dirname, '../Frontend/dist')));
+
 
 const JWT_SECRET = " rcf4rbfcu4rbc4r2u4br13ur13r13r"; 
 
