@@ -131,6 +131,9 @@ app.post("/login" , async (req, res) => {
   }
 })
 
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../Frontend/dist', 'index.html'));
+});
 
 // Start server on port 5000
 const PORT = process.env.PORT || 5000;

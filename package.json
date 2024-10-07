@@ -1,0 +1,15 @@
+{
+  "name": "foodordering",
+  "version": "1.0.0",
+  "description": "Unified frontend and backend deployment",
+  "main": "Backend/server.js",
+  "scripts": {
+    "start": "node Backend/server.js",
+    "install-client": "cd Frontend && npm install",
+    "build-client": "cd Frontend && npm run build",
+    "postinstall": "npm run install-client && npm run build-client"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
