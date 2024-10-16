@@ -14,6 +14,7 @@ import UserContext from './utils/UserContext.js';
 import { Provider } from 'react-redux';
 import appStore from './utils/appStore.js';
 import SignIn from './components/SignIn.js';
+import Search from './components/Search.js';
 
 import ProtectedRoute from './components/ProtectedRoute.js';
 
@@ -81,7 +82,7 @@ const appRouter = createBrowserRouter([
       },
       {
         path : "/restaurent/:resId",
-        element : <RestaurentMenu/>
+        element : <RestaurentMenu/>,
       },
       {
         path: "/cart",
@@ -98,17 +99,16 @@ const appRouter = createBrowserRouter([
       {
         path : "/login",
         element : <SignIn/>
+      },
+      {
+        path : "/search",
+        element : <Search/>
       }
     ],
     errorElement: <CustomError />
   },
- 
 ])
-
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
-
-
 root.render(<RouterProvider router={appRouter}/>);
 
 

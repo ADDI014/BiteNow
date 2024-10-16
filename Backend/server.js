@@ -31,7 +31,6 @@ mongoose.connect('mongodb+srv://2237129aimlcec:Ankit123@bharatvirasat.rm5xbbq.mo
 
 const authenticateToken = (req, res, next) => {
   const token = req.headers['authorization'];
-  
   if (!token) return res.status(401).json({ message: 'Access denied' });
   
   try {

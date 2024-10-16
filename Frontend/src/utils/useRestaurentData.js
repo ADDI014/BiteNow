@@ -1,9 +1,9 @@
 import {useState , useEffect} from "react";
-import { HOME_API } from "./constants";
+// import { HOME_API } from "./constants";
 import apiData from "./apiData";
 
 
-const useHomeAPI = () =>{
+const useRestaurentData = () =>{
 
 const [listofRestaurent, setlistofRestaurent ] = useState([]);
   const [filteredRestaurent , setfilteredRestaurent] = useState([]);
@@ -44,7 +44,7 @@ const [listofRestaurent, setlistofRestaurent ] = useState([]);
 }
 
 
-export default useHomeAPI;
+export default useRestaurentData;
 
 
 

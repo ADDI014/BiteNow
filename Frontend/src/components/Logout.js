@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import UserContext from "../utils/UserContext";
+import { LuUserCircle2 } from "react-icons/lu";
 
 const Logout = () => {
   const [btnName, setBtnName] = useState("Login"); // Default to "Login"
@@ -32,20 +33,22 @@ const Logout = () => {
   };
 
   return (
-    <div>
+    <div className="hidden md:flex items-center gap-2">
       <button
-        className="ml-4 px-4 py-2 bg-pink-500 text-white font-semibold rounded-lg hover:bg-pink-600 transition duration-300"
+        className='px-3 py-1 rounded-full text-white bg-orange-400 hover:bg-orange-500'
         onClick={handleAuthButton}
       >
          {btnName}
       </button>
 
       {/* Display Logged In Username */}
-      {loggedInUser && (
-        <span className="ml-4 text-gray-700 font-semibold">
-          {loggedInUser}
-        </span>
-      )}
+      {loggedInUser ? (
+  <span className="flex ml-4 text-gray-700 font-semibold">
+    {loggedInUser}
+  </span>
+) : (
+  <LuUserCircle2 className="text-gray-700 text-2xl" />
+)}
     </div>
   );
 };
